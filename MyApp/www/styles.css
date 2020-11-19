@@ -1,0 +1,211 @@
+body{
+    background: #17162D;
+    text-align: center;
+}
+
+h2{
+
+    background-color: #8E8E8E;
+    margin: 0;
+    padding: 0.5em;
+    font-family: 'Squada One', cursive;
+    color: white;
+
+}
+
+#contAll{
+
+    text-align: center;
+
+}
+
+.names{
+    
+    background-color: none;
+    padding: 0.5em;
+    width: 25%;
+    margin: 10px auto;
+    border-radius: 10px
+
+}
+
+#contGames{
+
+    display: inline-flex;
+    width: 85%;
+
+}
+
+#configProfile:hover{
+
+    cursor: pointer;
+    transform: scale(1.15);
+    opacity: 0.5;
+    transition: 0.5s;
+
+}
+
+.namesConfig:hover{
+
+    cursor: pointer;
+    transform: scale(1.15);
+    opacity: 0.5;
+    transition: 0.5s;
+
+}
+
+.namesConfig{
+
+    background-color: none;
+    padding: 0.5em;
+    width: 25%;
+    margin: 10px auto;
+    border-radius: 10px
+
+}
+
+#game{
+
+    width: 45%;
+    padding: 2em;
+    text-align: center;
+    
+}
+
+#contGames div :hover{
+
+    cursor: pointer;
+    opacity: 0.5;
+    transition: 0.3s;
+
+}
+
+
+#imagen img{
+
+    width: 100%;
+    
+
+}
+
+#info{
+
+    background-color: #8E8E8E;
+    width: 25%;
+    margin: 0 auto;
+    padding: 1.5em;
+    border-radius: 1em;
+
+}
+
+#colorSec{
+
+    width: 50%;
+
+}
+
+#colorSec2{
+
+    width: 50%;
+
+}
+
+input::placeholder{
+
+    font-family: 'Squada One', cursive;
+    font-size: 1.25em;
+
+}
+
+#submit{
+
+    margin-top: 1em;
+    font-family: 'Squada One', cursive;
+    font-size: 1.5em;
+
+}
+
+@media (max-width: 600px) {
+
+    h2{
+
+        font-size: 1em;
+
+    }
+    
+    #contGames{
+
+        display: block;
+        width: 100%;
+        margin: auto;
+    
+    }
+
+    #game{
+
+        margin: 0 auto;
+    
+    }
+
+    .names{
+
+        margin-top: 5px;
+        padding: 0.25em;
+        font-size: 1em;
+        width: 50%;
+
+    }
+
+    .namesConfig{
+
+        margin-top: 5px;
+        padding: 0.25em;
+        font-size: 1em;
+        width: 50%;
+    
+    }
+
+    #info{
+
+        width: 50%;
+    
+    }
+    
+    #colorSec{
+    
+        width: 50%;
+    
+    }
+    
+    input::placeholder{
+    
+        font-family: 'Squada One', cursive;
+        font-size: 1.25em;
+    
+    }
+    
+    #submit{
+    
+        margin-top: 1em;
+        font-family: 'Squada One', cursive;
+        font-size: 1.5em;
+    
+    }
+
+  }
+
+  @media (max-width: 1200px) {
+
+    h2{
+
+        font-size: 1em;
+
+    }
+
+    #contGames{
+
+        width: 60%;
+
+    }
+
+  }

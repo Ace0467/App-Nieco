@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <script src="jslib.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script crossorigin="anonymous" src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <title>App</title>
+</head>
+
+<body onload="loadGames()">
+
+    <div id="contAll">
+
+    <div id="nombres">
+        <h2 class ="names" id="jug1"></h2>
+        <h2 class ="names" id="jug2"></h2>
+        <h2 class ="names" id="configProfile" onclick="location.href='config.html'">Configurar perflies</h2>
+        <!-- <h2 class ="names" id="kill" onclick="killStorage()">Matar</h2> -->
+    </div>
+
+    <div id="contGames">
+
+        <div id="game" onclick="location.href='Games/tateti/index.html'">
+
+            <div id="imagen"><img src="img/tate.jpg" alt=""></div>
+            <h2>Ta Te Ti</h2>
+
+        </div>
+        <div id="game" onclick="location.href='Games/generala/index.html'">
+
+            <div id="imagen"><img src="img/gen.jpg" alt=""></div>
+            <h2>Generala</h2>
+
+        </div>
+        
+    </div>
+
+</div>
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>

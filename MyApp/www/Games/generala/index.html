@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <script src="../../jslib.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script crossorigin="anonymous" src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="icon" href="img/diceicon.png"" type=" img/diceicon.png">
+    <title>Ultimate Generala Redux</title>
+</head>
+
+<body onload="init();">
+    <div id="contenedorAll">
+        <div id="nombres">
+            <h2 id="movs"></h2>
+            <div id="botones">
+                <button id="roll" onclick="diceRoll()">Tirar los dados</button>
+                <button id="reRoll" onclick="diceRoll()">Volver a tirar</button>
+                <!---<button id="plant">Plantarse</button>--->
+            </div>
+        </div>
+        <div id="dadosYpuntaje">
+            <div id="contenedorDados"></div>
+            <table id="manos">
+                <tr>
+                    <td><span>Jugada/Mano</span></td>
+                    <td><span id="nombre1"></span></td>
+                    <td><span id="nombre2"></span></td>
+                    <!-- <td><span></span></td> -->
+                </tr>
+                <tr>
+                    <td><span>1</span></td>
+                    <td><span id="jugador1_1"></span></td>
+                    <td><span id="jugador2_1"></span></td>
+                    <td class="play" id="playOne" onclick="playNumber(1)"><span>Jugar</span></td>
+                </tr>
+                <tr>
+                    <td><span>2</span></td>
+                    <td><span id="jugador1_2"></span></td>
+                    <td><span id="jugador2_2"></span></td>
+                    <td class="play" id="playTwo" onclick="playNumber(2)"><span>Jugar</span></td>
+                </tr>
+                <tr>
+                    <td><span>3</span></td>
+                    <td><span id="jugador1_3"></span></td>
+                    <td><span id="jugador2_3"></span></td>
+                    <td class="play" id="playThree" onclick="playNumber(3)"><span>Jugar</span></td>
+                </tr>
+                <tr>
+                    <td><span>4</span></td>
+                    <td><span id="jugador1_4"></span></td>
+                    <td><span id="jugador2_4"></span></td>
+                    <td class="play" id="playFour" onclick="playNumber(4)"><span>Jugar</span></td>
+                </tr>
+                <tr>
+                    <td><span>5</span></td>
+                    <td><span id="jugador1_5"></span></td>
+                    <td><span id="jugador2_5"></span></td>
+                    <td class="play" id="playFive" onclick="playNumber(5)"><span>Jugar</span></td>
+                </tr>
+                <tr>
+                    <td><span>6</span></td>
+                    <td><span id="jugador1_6"></span></td>
+                    <td><span id="jugador2_6"></span></td>
+                    <td class="play" id="playSix" onclick="playNumber(6)"><span>Jugar</span></td>
+                </tr>
+                <tr>
+                    <td><span>Escalera</span></td>
+                    <td><span id="jugador1_escalera"></span></td>
+                    <td><span id="jugador2_escalera"></span></td>
+                    <td class="play" id="playEscalera" onclick="playLadder()"><span>Jugar</span></td>
+                </tr>
+                <tr>
+                    <td><span>Full</span></td>
+                    <td><span id="jugador1_full"></span></td>
+                    <td><span id="jugador2_full"></span></td>
+                    <td class="play" id="playFull" onclick="playFull()"><span>Jugar</span></td>
+                </tr>
+                <tr>
+                    <td><span>Poker</span></td>
+                    <td><span id="jugador1_poker"></span></td>
+                    <td><span id="jugador2_poker"></span></td>
+                    <td class="play" id="playPoker" onclick="playPok()"><span>Jugar</span></td>
+                </tr>
+                <tr>
+                    <td><span>Generala</span></td>
+                    <td><span id="jugador1_generala"></span></td>
+                    <td><span id="jugador2_generala"></span></td>
+                    <td class="play" id="playGenerala" onclick="playGen()"><span>Jugar</span></td>
+                </tr>
+                <tr>
+                    <td><span>Generala Doble</span></td>
+                    <td><span id="jugador1_generala2"></span></td>
+                    <td><span id="jugador2_generala2"></span></td>
+                    <td class="play" id="playGeneralaDoble" onclick="playGenDoble()"><span>Jugar</span></td>
+                </tr>
+                <tr>
+                    <td><span>Puntos totales</span></td>
+                    <td><span id="jugador1_puntos"></span></td>
+                    <td><span id="jugador2_puntos"></span></td>
+                </tr>
+            </table>
+        </div>
+        <div id="winMsg">
+            <h1 id="winMsgInput"></h1>
+            <button id="refresh" onclick="location.href='index.html'">Volver a jugar</button>
+        </div>
+    </div>
+
+    <script src="funcs2.js"></script>
+    <script src="../../index.js"></script>
+
+</body>
+
+</html>
