@@ -23,6 +23,9 @@ let diceTemp;
 
 let movsPendientes = 3;
 
+let p1 = Storage.get("p1");
+let p2 = Storage.get("p2");
+
 // let combsLadder = [
 
 //     [1, 2, 3, 4, 5]
@@ -33,23 +36,24 @@ let movsPendientes = 3;
 function init() {
     // rondas = 0;
 
-    document.getElementById("nombre1").innerHTML = Storage.get("p1").nick;
-    document.getElementById("nombre2").innerHTML = Storage.get("p2").nick;
+    document.getElementById("nombre1").innerHTML = p1.nick;
+    document.getElementById("nombre2").innerHTML = p2.nick;
 
     if (estadoDelJuego.asignadorToStart == 1) {
 
         document.getElementById("nombre1").style.color = "blue";
-        document.getElementById("nombre2").style.color = "white";
+        document.getElementById("nombre2").style.color = p2.color;
 
     } else {
 
-        document.getElementById("nombre1").style.color = "white";
+        document.getElementById("nombre1").style.color = p1.color;
         document.getElementById("nombre2").style.color = "blue";
 
     }
 
     movsPendientes = 3;
     document.getElementById("movs").innerHTML = "Movimientos pendientes: " + movsPendientes;
+    generateBlankDice();
 }
 
 function diceRoll() {
@@ -58,7 +62,9 @@ function diceRoll() {
 
     if (movsPendientes > 0) {
 
-        if (movsPendientes == 3 || contenedorCont.innerHTML == null) {
+        if (movsPendientes == 3) {
+
+            contenedorCont.innerHTML = null;
 
             for (i = 0; i < 5; i++) {
 
@@ -124,18 +130,17 @@ function diceRoll() {
 
 function disappearPlay() {
 
-    document.getElementById("playOne").style.display = "none";
-    document.getElementById("playTwo").style.display = "none";
-    document.getElementById("playThree").style.display = "none";
-    document.getElementById("playFour").style.display = "none";
-    document.getElementById("playFive").style.display = "none";
-    document.getElementById("playSix").style.display = "none";
-    document.getElementById("playPoker").style.display = "none";
-    document.getElementById("playFull").style.display = "none";
-    document.getElementById("playEscalera").style.display = "none";
-    document.getElementById("playGenerala").style.display = "none";
-    document.getElementById("playGeneralaDoble").style.display = "none";
-
+    document.getElementById("playOne").setAttribute("onclick", "");
+    document.getElementById("playTwo").setAttribute("onclick", "");
+    document.getElementById("playThree").setAttribute("onclick", "");
+    document.getElementById("playFour").setAttribute("onclick", "");
+    document.getElementById("playFive").setAttribute("onclick", "");
+    document.getElementById("playSix").setAttribute("onclick", "");
+    document.getElementById("playPoker").setAttribute("onclick", "");
+    document.getElementById("playFull").setAttribute("onclick", "");
+    document.getElementById("playEscalera").setAttribute("onclick", "");
+    document.getElementById("playGenerala").setAttribute("onclick", "");
+    document.getElementById("playGeneralaDoble").setAttribute("onclick", "");
 
 }
 
@@ -147,64 +152,64 @@ function checkPlays() {
 
     if (document.getElementById("jugador" + estadoDelJuego.asignadorToStart + "_1").innerHTML === "") {
 
-        document.getElementById("playOne").style.display = "block";
+        document.getElementById("playOne").setAttribute("onclick", "playNumber(1)");
 
     } else if (movsPendientes < 0) {
 
-        document.getElementById("playOne").style.display = "none";
+        document.getElementById("playOne").setAttribute("onclick", "");
 
     }
 
 
     if (document.getElementById("jugador" + estadoDelJuego.asignadorToStart + "_2").innerHTML === "") {
 
-        document.getElementById("playTwo").style.display = "block";
+        document.getElementById("playTwo").setAttribute("onclick", "playNumber(2)");
 
     } else if (movsPendientes < 0) {
 
-        document.getElementById("playTwo").style.display = "none";
+        document.getElementById("playTwo").setAttribute("onclick", "");
 
     }
 
 
     if (document.getElementById("jugador" + estadoDelJuego.asignadorToStart + "_3").innerHTML === "") {
 
-        document.getElementById("playThree").style.display = "block";
+        document.getElementById("playThree").setAttribute("onclick", "playNumber(3)");
 
     } else if (movsPendientes < 0) {
 
-        document.getElementById("playThree").style.display = "none";
+        document.getElementById("playThree").setAttribute("onclick", "");
 
     }
 
 
     if (document.getElementById("jugador" + estadoDelJuego.asignadorToStart + "_4").innerHTML === "") {
 
-        document.getElementById("playFour").style.display = "block";
+        document.getElementById("playFour").setAttribute("onclick", "playNumber(4)");
 
     } else if (movsPendientes < 0) {
 
-        document.getElementById("playFour").style.display = "none";
+        document.getElementById("playFour").setAttribute("onclick", "");
 
     }
 
     if (document.getElementById("jugador" + estadoDelJuego.asignadorToStart + "_5").innerHTML === "") {
 
-        document.getElementById("playFive").style.display = "block";
+        document.getElementById("playFive").setAttribute("onclick", "playNumber(5)");
 
     } else if (movsPendientes < 0) {
 
-        document.getElementById("playFive").style.display = "none";
+        document.getElementById("playFive").setAttribute("onclick", "");
 
     }
 
     if (document.getElementById("jugador" + estadoDelJuego.asignadorToStart + "_6").innerHTML === "") {
 
-        document.getElementById("playSix").style.display = "block";
+        document.getElementById("playSix").setAttribute("onclick", "playNumber(6)");
 
     } else if (movsPendientes < 0) {
 
-        document.getElementById("playSix").style.display = "none";
+        document.getElementById("playSix").setAttribute("onclick", "");
 
     }
 
@@ -214,11 +219,11 @@ function checkPlays() {
     if (document.getElementById("jugador" + estadoDelJuego.asignadorToStart + "_poker").innerHTML === "") {
 
 
-        document.getElementById("playPoker").style.display = "block";
+        document.getElementById("playPoker").setAttribute("onclick", "playPok()");
 
     } else if (movsPendientes < 0) {
 
-        document.getElementById("playPoker").style.display = "none";
+        document.getElementById("playPoker").setAttribute("onclick", "");
 
     }
 
@@ -226,11 +231,11 @@ function checkPlays() {
 
     if (document.getElementById("jugador" + estadoDelJuego.asignadorToStart + "_full").innerHTML === "") {
 
-        document.getElementById("playFull").style.display = "block";
+        document.getElementById("playFull").setAttribute("onclick", "playFull()");
 
     } else if (movsPendientes < 0) {
 
-        document.getElementById("playFull").style.display = "none";
+        document.getElementById("playFull").setAttribute("onclick", "");
 
     }
 
@@ -239,12 +244,12 @@ function checkPlays() {
     if (document.getElementById("jugador" + estadoDelJuego.asignadorToStart + "_escalera").innerHTML === "") {
 
 
-        document.getElementById("playEscalera").style.display = "block";
+        document.getElementById("playEscalera").setAttribute("onclick", "playLadder()");
 
     } else if (movsPendientes < 0) {
 
 
-        document.getElementById("playEscalera").style.display = "none";
+        document.getElementById("playEscalera").setAttribute("onclick", "");
 
     }
 
@@ -253,22 +258,22 @@ function checkPlays() {
     if (document.getElementById("jugador" + estadoDelJuego.asignadorToStart + "_generala").innerHTML === "") {
 
 
-        document.getElementById("playGenerala").style.display = "block";
+        document.getElementById("playGenerala").setAttribute("onclick", "playGen()");
 
     } else if (movsPendientes < 0) {
 
 
-        document.getElementById("playGenerala").style.display = "none";
+        document.getElementById("playGenerala").setAttribute("onclick", "");
 
     }
 
     if (document.getElementById("jugador" + estadoDelJuego.asignadorToStart + "_generala2").innerHTML === "" && document.getElementById("jugador" + estadoDelJuego.asignadorToStart + "_generala").innerHTML != "") {
 
-        document.getElementById("playGeneralaDoble").style.display = "block";
+        document.getElementById("playGeneralaDoble").setAttribute("onclick", "playGenDoble()");
 
     } else if (movsPendientes < 0 || document.getElementById("jugador" + estadoDelJuego.asignadorToStart + "_generala").innerHTML === "") {
 
-        document.getElementById("playGeneralaDoble").style.display = "none";
+        document.getElementById("playGeneralaDoble").setAttribute("onclick", "");
 
     }
 
@@ -300,10 +305,26 @@ function generateDice() {
 
         } else if (evt.currentTarget.getAttribute("class") == "selected") {
 
-            evt.currentTarget.classList.remove("selected");
+            evt.currentTarget.setAttribute("class", "");
 
         }
     }
+}
+
+function generateBlankDice() {
+
+    contenedorCont.innerHTML = null;
+
+    for (let i = 0; i < 5; i++) {
+        let dadoCasillero = document.createElement("div");
+        contenedorCont.appendChild(dadoCasillero);
+
+        let dado = document.createElement("img");
+        dado.setAttribute("src", "img/dado0.jpg");
+        dadoCasillero.appendChild(dado);
+    }
+
+
 }
 
 function playGen() {
@@ -319,7 +340,8 @@ function playGen() {
                 document.getElementById("winMsgInput").innerHTML = "¡JUGADOR 1, GANASTE!";
                 document.getElementById("winMsg").style.display = "block";
                 document.getElementById("refresh").style.display = "block";
-                Storage.get("p1").points = Storage.get("p1").points + 10;
+                p1.points += 10;
+                Storage.put("p1", p1);
                 timer = setTimeout(backHome, 5000);
 
             } else {
@@ -330,7 +352,8 @@ function playGen() {
                 document.getElementById("winMsgInput").innerHTML = "¡JUGADOR 2, GANASTE!";
                 document.getElementById("winMsg").style.display = "block";
                 document.getElementById("refresh").style.display = "block";
-                Storage.get("p2").points = Storage.get("p2").points + 10;
+                p2.points += 10;
+                Storage.put("p2", p2);
                 timer = setTimeout(backHome, 5000);
 
             }
@@ -340,6 +363,11 @@ function playGen() {
             document.getElementById("jugador" + estadoDelJuego.asignadorToStart + "_generala").innerHTML = estadoDelJuego.points[estadoDelJuego.asignadorToStart - 1][9];
 
         }
+    } else if (document.getElementById("jugador" + estadoDelJuego.asignadorToStart + "_generala2").innerHTML === "") {
+
+        estadoDelJuego.points[estadoDelJuego.asignadorToStart - 1][10] = 0;
+        document.getElementById("jugador" + estadoDelJuego.asignadorToStart + "_generala2").innerHTML = estadoDelJuego.points[estadoDelJuego.asignadorToStart - 1][10];
+
     } else {
 
         estadoDelJuego.points[estadoDelJuego.asignadorToStart - 1][9] = 0;
@@ -549,13 +577,13 @@ function finishTurn() {
 
     totalPoints();
 
-    if (estadoDelJuego.rounds != 22) {
+    if (estadoDelJuego.rounds != 21) {
 
         if (estadoDelJuego.asignadorToStart === 1) {
 
             contenedorCont.innerHTML = ""
 
-            document.getElementById("nombre1").style.color = "white";
+            document.getElementById("nombre1").style.color = p1.color;
             document.getElementById("nombre2").style.color = "blue";
 
             estadoDelJuego.asignadorToStart = 2;
@@ -566,12 +594,13 @@ function finishTurn() {
             contenedorCont.innerHTML = "";
 
             document.getElementById("nombre1").style.color = "blue";
-            document.getElementById("nombre2").style.color = "white";
+            document.getElementById("nombre2").style.color =  p2.color;
 
             estadoDelJuego.asignadorToStart = 1;
             console.log("ahora va el otro 2");
         }
 
+        generateBlankDice();
         botonRoll.style.display = "block";
         botonReRoll.style.display = "none";
 
@@ -585,10 +614,11 @@ function finishTurn() {
             document.getElementById("contenedorDados").style.display = "none";
             document.getElementById("manos").style.display = "none";
             document.getElementById("nombres").style.display = "none";
-            document.getElementById("winMsgInput").innerHTML = "¡JUGADOR 1, GANASTE!";
-            document.getElementById("refresh").style.display = "block";
+            document.getElementById("winMsgInput").innerHTML = p1.nick + " GANASTE!";
+            document.getElementById("winMsgInput").style.color = p1.color;
             document.getElementById("winMsg").style.display = "block";
-            Storage.get("p1").points = Storage.get("p1").points + 5;
+            p1.points += 5;
+            Storage.put("p1", p1);
             timer = setTimeout(backHome, 5000);
 
 
@@ -597,23 +627,26 @@ function finishTurn() {
             document.getElementById("contenedorDados").style.display = "none";
             document.getElementById("manos").style.display = "none";
             document.getElementById("nombres").style.display = "none";
-            document.getElementById("winMsgInput").innerHTML = "¡JUGADOR 2, GANASTE!";
-            document.getElementById("refresh").style.display = "block";
+            document.getElementById("winMsgInput").innerHTML = p2.nick + " GANASTE!";
+            document.getElementById("winMsgInput").style.color = p2.color;
             document.getElementById("winMsg").style.display = "block";
-            Storage.get("p2").points = Storage.get("p2").points + 5;
+            p2.points += 5;
+            Storage.put("p2", p2);
             timer = setTimeout(backHome, 5000);
 
 
         } else if (document.getElementById("jugador1_puntos").innerHTML === document.getElementById("jugador2_puntos").innerHTML) {
 
-            document.getElementById("contenedor").style.display = "none";
+            document.getElementById("contenedorDados").style.display = "none";
             document.getElementById("manos").style.display = "none";
             document.getElementById("nombres").style.display = "none";
             document.getElementById("winMsgInput").innerHTML = "EMPATE";
             document.getElementById("refresh").style.display = "block";
             document.getElementById("winMsg").style.display = "block";
-            Storage.get("p1").points = Storage.get("p1").points + 1;
-            Storage.get("p2").points = Storage.get("p2").points + 1;
+            p1.points += 10;
+            Storage.put("p1", p1);
+            p2.points += 10;
+            Storage.put("p2", p2);
             timer = setTimeout(backHome, 5000);
 
 

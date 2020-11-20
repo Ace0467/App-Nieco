@@ -1,6 +1,6 @@
 var timer;
-let player1;
-let player2;
+let p1 = Storage.get("p1");
+let p2 = Storage.get("p2");
 let asignadorToStart;
 let currentIndex;
 let ocupaciones = ["", "", "", "", "", "", "", "", ""];
@@ -38,9 +38,9 @@ function init() {
         contenedorCont.appendChild(casillero);
         if (asignadorToStart == 1) {
             document.getElementById("p1TTT").style.color = "blue";
-            document.getElementById("p2TTT").style.color = "white";
+            document.getElementById("p2TTT").style.color = p2.color;
         } else {
-            document.getElementById("p1TTT").style.color = "white";
+            document.getElementById("p1TTT").style.color = p1.color;
             document.getElementById("p2TTT").style.color = "blue";
         }
         casillero.onclick = evt => {
@@ -60,15 +60,17 @@ function init() {
                         if (a === b && b === c) {
                             document.getElementById("contenedor").style.display = "none";
                             document.getElementById("nombres").style.display = "none";
-                            document.getElementById("winMsgInput").innerHTML = Storage.get("p1").nick + " GANASTE!";
+                            document.getElementById("winMsgInput").innerHTML = p1.nick + " GANASTE!";
+                            document.getElementById("winMsgInput").style.color = p1.color;
                             document.getElementById("winMsg").style.display = "block";
-                            Storage.get("p1").points = Storage.get("p1").points + 3;
+                            p1.points += 3;
+                            Storage.put("p1", p1);
                             timer = setTimeout(backHome, 5000);
                             break;
                         }
                     }
                     asignadorToStart = 0;
-                    document.getElementById("p1TTT").style.color = Storage.get("color1");
+                    document.getElementById("p1TTT").style.color = p1.color;
                     document.getElementById("p2TTT").style.color = "blue";
                 } else if(asignadorToStart != 1) {
                     casillero.setAttribute("data-player-index", 0);
@@ -85,9 +87,11 @@ function init() {
                         if (a === b && b === c) {
                             document.getElementById("contenedor").style.display = "none";
                             document.getElementById("nombres").style.display = "none";
-                            document.getElementById("winMsgInput").innerHTML = Storage.get("p2").nick + " GANASTE!";
+                            document.getElementById("winMsgInput").innerHTML = p2.nick + " GANASTE!";
+                            document.getElementById("winMsgInput").style.color = p2.color;
                             document.getElementById("winMsg").style.display = "block";
-                            Storage.get("p2").points = Storage.get("p2").points + 3;
+                            p2.points =+ 3;
+                            Storage.put("p2", p2);
                             timer = setTimeout(backHome, 5000);
                             break;
                         }
@@ -97,7 +101,7 @@ function init() {
 
                     asignadorToStart = 1;
                     document.getElementById("p1TTT").style.color = "blue";
-                    document.getElementById("p2TTT").style.color = Storage.get("color2");
+                    document.getElementById("p2TTT").style.color = p2.color;
 
 
                 } else if(!ocupaciones.includes("")) {
@@ -106,8 +110,10 @@ function init() {
                     document.getElementById("nombres").style.display = "none";
                     document.getElementById("winMsgInput").innerHTML = "EMPATE";
                     document.getElementById("winMsg").style.display = "block";
-                    Storage.get("p1").points = Storage.get("p1").points + 1;
-                    Storage.get("p2").points = Storage.get("p2").points + 1;
+                    p1.points =+ 3;
+                    Storage.put("p1", p1);
+                    p2.points =+ 3;
+                    Storage.put("p2", p2);
                     timer = setTimeout(backHome, 5000);
             }
 

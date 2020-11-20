@@ -1,5 +1,6 @@
 body{
     background: #17162D;
+    text-align: center;
 }
 
 h1{
@@ -56,8 +57,7 @@ h2{
        /* padding: 0.25em; */
        text-align: center;
        /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-       width: 46%;
-       margin: 0 auto 0 auto;
+
 }
 
 
@@ -69,6 +69,10 @@ h2{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     width: 40%;
     margin: 1% auto 0 auto;
+}
+
+#contenedorAll{
+    text-align: center;
 }
 
 #contenedor div{
@@ -123,15 +127,15 @@ select{
     }
 
     #contenedor{
-        width: 70%;
+        width: 75%;
         margin: 5% auto 0 auto;
     }
 
     #contenedor div{
 
         display: inline-block;
-        width: 60px;
-        height: 60px;
+        width: 70px;
+        height: 70px;
         margin: 0.5em;
         
     
@@ -156,18 +160,31 @@ select{
 
     #contenedor{
 
-        width: 50%;
+        width: 55%;
         margin: 1% auto 0 auto;
+    }
+
+    #contenedorAll{
+
+        display: inline-flex;
+        transform: translateY(15%);
+
     }
 
     #contenedor div{
 
         display: inline-block;
-        width: 60px;
-        height: 60px;
+        width: 70px;
+        height: 70px;
         margin: 0.5em;
         
     
     }
+
+    #nombres{
+        top: 50%;
+        transform: translateY(23%);
+        width: 40%;
+ }
 
   } 

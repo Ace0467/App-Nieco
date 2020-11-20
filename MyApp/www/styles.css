@@ -24,7 +24,7 @@ h2{
     background-color: none;
     padding: 0.5em;
     width: 25%;
-    margin: 10px auto;
+    margin: 5px;
     border-radius: 10px
 
 }
@@ -111,6 +111,27 @@ h2{
 
 }
 
+.imgHome {
+
+    width: 35%;
+    border-radius: 50%;
+
+}
+
+#jugador1{
+
+width: 50%;
+display: inline-flex;
+
+}
+
+#jugador2{
+
+    width: 50%;
+    display: inline-flex;
+    
+    }
+
 input::placeholder{
 
     font-family: 'Squada One', cursive;
@@ -166,6 +187,7 @@ input::placeholder{
     .names{
 
         margin-top: 5px;
+        margin-left: 10%;
         padding: 0.25em;
         font-size: 1em;
         width: 50%;
@@ -208,6 +230,14 @@ input::placeholder{
     
     }
 
+    .imgHome {
+
+        width: 24%;
+        height: 10%;
+        border-radius: 50%;
+    
+    }
+
   }
 
   @media (min-width: 501px) {
@@ -220,7 +250,23 @@ input::placeholder{
 
     #contGames{
 
-        width: 60%;
+        width: 50%;
+
+    }
+
+    .imgHome {
+
+        width: 12%;
+        height: 7.5%;
+        border-radius: 50%;
+    
+    }
+
+    .names{
+
+        margin-top: 5px;
+        margin-left: 10%;
+        width: 50%;
 
     }
 

@@ -9,7 +9,7 @@ h1{
     padding: 0.125em;
     background-color: #8E8E8E;
     width: 25%;
-    margin: 0.5em auto 0 auto;
+    margin: 0 auto;
     border-radius: 1em;
 }
 
@@ -267,6 +267,7 @@ table{
     h1{
 
         font-size: 1em;
+        width: 100%;
 
     }
 
