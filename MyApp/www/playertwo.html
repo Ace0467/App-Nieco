@@ -16,9 +16,18 @@
         <input type="text" id="name2" name="name2" placeholder="Ingrese su nombre"><br><br>
         <input type="text" id="nick2" name="nick2" placeholder="Ingrese su nick"><br><br>
         <input id="colorSec2" type="color"><br>
-        <button id="submit" onclick="confirmarPlayerTwo()">Confirmar</button>
+        <div id="botonesEimg">
+
+            <img id="foto" src="img/avatar.png" alt="">
+            <div id="btnsFoto">
+                <button id="submit" onclick="confirmarPlayerTwo()">Confirmar</button>
+                <button id="takefoto" onclick="takePicture()">Tomar Foto</button>
+            </div>
+
+        </div>
     </div>
 
+    <script src="cordova.js"></script>
     <script src="index.js"></script>
 
 </body>

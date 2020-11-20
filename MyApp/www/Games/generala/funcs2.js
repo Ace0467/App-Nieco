@@ -33,17 +33,17 @@ let movsPendientes = 3;
 function init() {
     // rondas = 0;
 
-    document.getElementById("nombre1").innerHTML = Storage.get("nick1");
-    document.getElementById("nombre2").innerHTML = Storage.get("nick2");
+    document.getElementById("nombre1").innerHTML = Storage.get("p1").nick;
+    document.getElementById("nombre2").innerHTML = Storage.get("p2").nick;
 
     if (estadoDelJuego.asignadorToStart == 1) {
 
         document.getElementById("nombre1").style.color = "blue";
-        document.getElementById("nombre2").style.color = Storage.get("color2");
+        document.getElementById("nombre2").style.color = "white";
 
     } else {
 
-        document.getElementById("nombre1").style.color = Storage.get("color1");
+        document.getElementById("nombre1").style.color = "white";
         document.getElementById("nombre2").style.color = "blue";
 
     }
@@ -319,7 +319,7 @@ function playGen() {
                 document.getElementById("winMsgInput").innerHTML = "¡JUGADOR 1, GANASTE!";
                 document.getElementById("winMsg").style.display = "block";
                 document.getElementById("refresh").style.display = "block";
-                Storage.put("points1", (Storage.get("points1") + 10));
+                Storage.get("p1").points = Storage.get("p1").points + 10;
                 timer = setTimeout(backHome, 5000);
 
             } else {
@@ -330,7 +330,7 @@ function playGen() {
                 document.getElementById("winMsgInput").innerHTML = "¡JUGADOR 2, GANASTE!";
                 document.getElementById("winMsg").style.display = "block";
                 document.getElementById("refresh").style.display = "block";
-                Storage.put("points2", (Storage.get("points2") + 10));
+                Storage.get("p2").points = Storage.get("p2").points + 10;
                 timer = setTimeout(backHome, 5000);
 
             }
@@ -555,7 +555,7 @@ function finishTurn() {
 
             contenedorCont.innerHTML = ""
 
-            document.getElementById("nombre1").style.color = Storage.get("color1");
+            document.getElementById("nombre1").style.color = "white";
             document.getElementById("nombre2").style.color = "blue";
 
             estadoDelJuego.asignadorToStart = 2;
@@ -566,7 +566,7 @@ function finishTurn() {
             contenedorCont.innerHTML = "";
 
             document.getElementById("nombre1").style.color = "blue";
-            document.getElementById("nombre2").style.color = Storage.get("color2");
+            document.getElementById("nombre2").style.color = "white";
 
             estadoDelJuego.asignadorToStart = 1;
             console.log("ahora va el otro 2");
@@ -588,7 +588,7 @@ function finishTurn() {
             document.getElementById("winMsgInput").innerHTML = "¡JUGADOR 1, GANASTE!";
             document.getElementById("refresh").style.display = "block";
             document.getElementById("winMsg").style.display = "block";
-            Storage.put("points1", (Storage.get("points1") + 5));
+            Storage.get("p1").points = Storage.get("p1").points + 5;
             timer = setTimeout(backHome, 5000);
 
 
@@ -600,7 +600,7 @@ function finishTurn() {
             document.getElementById("winMsgInput").innerHTML = "¡JUGADOR 2, GANASTE!";
             document.getElementById("refresh").style.display = "block";
             document.getElementById("winMsg").style.display = "block";
-            Storage.put("points2", (Storage.get("points2") + 5));
+            Storage.get("p2").points = Storage.get("p2").points + 5;
             timer = setTimeout(backHome, 5000);
 
 
@@ -612,8 +612,8 @@ function finishTurn() {
             document.getElementById("winMsgInput").innerHTML = "EMPATE";
             document.getElementById("refresh").style.display = "block";
             document.getElementById("winMsg").style.display = "block";
-            Storage.put("points1", (Storage.get("points1") + 1));
-            Storage.put("points2", (Storage.get("points2") + 1)); 
+            Storage.get("p1").points = Storage.get("p1").points + 1;
+            Storage.get("p2").points = Storage.get("p2").points + 1;
             timer = setTimeout(backHome, 5000);
 
 
@@ -639,6 +639,6 @@ function totalPoints() {
 
 function backHome() {
 
-    window.location.href = "../../juegos.html";
+    window.location.href = "rematch.html";
 
 }

@@ -1,3 +1,4 @@
+let fotoSrc;
 
 function confirmarPlayerOne() {
 
@@ -7,11 +8,35 @@ function confirmarPlayerOne() {
 
     } else if (document.getElementById("name").value != "" && document.getElementById("nick").value != "") {
 
-        Storage.put("nombre1", document.getElementById("name").value);
-        Storage.put("nick1", document.getElementById("nick").value);
-        Storage.put("color1", document.getElementById("colorSec").value);
-        Storage.put("points1", 0);
-        window.location.href = "playertwo.html";
+        if (document.getElementById("colorSec").value === "#0000ff" || document.getElementById("colorSec").value === "#ffffff") {
+
+            alert("¡Cambie el color!");
+
+        } else {
+
+            if (document.getElementById("foto").src === "") {
+
+                alert("Tomate una foto por favor! No tengas miedo!");
+
+            } else {
+
+                let perfil1 = {
+
+                    nombre: document.getElementById("name").value,
+                    nick: document.getElementById("nick").value,
+                    color: document.getElementById("colorSec").value,
+                    foto: document.getElementById("foto").src,
+                    points: 0
+
+                }
+                Storage.put("p1", perfil1);
+                window.location.href = "playertwo.html";
+
+            }
+
+
+
+        }
 
     }
 
@@ -25,19 +50,34 @@ function confirmarPlayerTwo() {
 
     } else if (document.getElementById("name2").value != "" && document.getElementById("nick2").value != "") {
 
-        if (document.getElementById("colorSec2").value === Storage.get("color1")) {
+        if (document.getElementById("colorSec2").value === Storage.get("p1").color || document.getElementById("colorSec2").value === "#0000ff" || document.getElementById("colorSec2").value === "#ffffff") {
 
             alert("¡Cambie el color!");
 
         } else {
 
-            Storage.put("nombre2", document.getElementById("name2").value);
-            Storage.put("nick2", document.getElementById("nick2").value);
-            Storage.put("color2", document.getElementById("colorSec2").value);
-            Storage.put("points2", 0);
+            if (document.getElementById("foto").src === "") {
+
+                alert("Tomate una foto por favor! No tengas miedo!");
+
+            } else {
+
+            let perfil2 = {
+
+                nombre: document.getElementById("name2").value,
+                nick: document.getElementById("nick2").value,
+                color: document.getElementById("colorSec2").value,
+                points: 0,
+                foto: document.getElementById("foto").src
+
+            }
+
+            Storage.put("p2", perfil2);
             window.location.href = "juegos.html";
 
         }
+
+    }
 
     }
 
@@ -45,48 +85,63 @@ function confirmarPlayerTwo() {
 
 function loadGames() {
 
-    document.getElementById("jug1").innerHTML = Storage.get("nick1") + " " + Storage.get("points1") + " puntos";
-    document.getElementById("jug1").style.color = Storage.get("color1");
-    document.getElementById("jug2").innerHTML = Storage.get("nick2") + " " + Storage.get("points2") + " puntos";
-    document.getElementById("jug2").style.color = Storage.get("color2");
+    document.getElementById("jug1").innerHTML = Storage.get("p1").nick + " " + Storage.get("p1").points + " puntos";
+    document.getElementById("jug1").style.color = Storage.get("p1").color;
+    document.getElementById("jug2").innerHTML = Storage.get("p2").nick + " " + Storage.get("p2").points;
+    document.getElementById("jug2").style.color = Storage.get("p2").color;
 
 }
 
 function loadConfig() {
 
-    document.getElementById("conf1").innerHTML = "Modificar perfil 1: " + Storage.get("nick1");
-    document.getElementById("conf2").innerHTML = "Modificar perfil 2: " + Storage.get("nick2");
+    document.getElementById("conf1").innerHTML = "Modificar perfil 1: " + Storage.get("p1").nick;
+    document.getElementById("conf2").innerHTML = "Modificar perfil 2: " + Storage.get("p2").nick;
 
 }
 
 function checkProfile() {
 
-    if (Storage.get("nombre1") != null && Storage.get("nick1") != null) {
+    if (Storage.get("p1") != null && Storage.get("p2") != null) {
 
         window.location.href = "juegos.html";
+
+    } else {
+
+        Storage.kill();
+
     }
+
 }
+
 
 function p1Values() {
 
-    document.getElementById("name1config").value = Storage.get("nombre1");
-    document.getElementById("nick1config").value = Storage.get("nick1");
-    document.getElementById("colorSec1config").value = Storage.get("color1");
-
+    document.getElementById("name1config").value = Storage.get("p1").nombre;
+    document.getElementById("nick1config").value = Storage.get("p1").nick;
+    document.getElementById("colorSec1config").value = Storage.get("p1").color;
+    document.getElementById("foto").src = Storage.get("p1").foto;
 
 }
 
 function confirmP1Values() {
 
-    if (document.getElementById("colorSec1config").value === Storage.get("color1")) {
+    if (document.getElementById("colorSec1config").value === Storage.get("color2") || document.getElementById("colorSec1config").value === "#0000ff" || document.getElementById("colorSec1config").value === "#ffffff") {
 
         alert("¡Cambie el color!");
 
     } else {
 
-        Storage.put("nombre1", document.getElementById("name1config").value);
-        Storage.put("nick1", document.getElementById("nick1config").value);
-        Storage.put("color1", document.getElementById("colorSec1config").value);
+        let perfil1 = {
+
+            nombre: document.getElementById("name1config").value,
+            nick: document.getElementById("nick1config").value,
+            color: document.getElementById("colorSec1config").value,
+            foto: document.getElementById("foto").src,
+            points: 0
+
+        }
+        
+        Storage.put("p1", perfil1);
         window.location.href = "juegos.html";
 
     }
@@ -95,23 +150,32 @@ function confirmP1Values() {
 
 function p2Values() {
 
-    document.getElementById("name2config").value = Storage.get("nombre2");
-    document.getElementById("nick2config").value = Storage.get("nick2");
-    document.getElementById("colorSec2config").value = Storage.get("color2");
+    document.getElementById("name2config").value = Storage.get("p2").nombre;
+    document.getElementById("nick2config").value = Storage.get("p2").nick;
+    document.getElementById("colorSec2config").value = Storage.get("p2").color;
+    document.getElementById("foto").src = Storage.get("p2").foto;
 
 }
 
 function confirmP2Values() {
 
-    if (document.getElementById("colorSec2config").value === Storage.get("color1")) {
+    if (document.getElementById("colorSec2config").value === Storage.get("p1").color || document.getElementById("colorSec2config").value === "#0000ff" || document.getElementById("colorSec2config").value === "#ffffff") {
 
         alert("¡Cambie el color!");
 
     } else {
 
-        Storage.put("nombre2", document.getElementById("name2config").value);
-        Storage.put("nick2", document.getElementById("nick2config").value);
-        Storage.put("color2", document.getElementById("colorSec2config").value);
+        let perfil2 = {
+
+            nombre: document.getElementById("name2config").value,
+            nick: document.getElementById("nick2config").value,
+            color: document.getElementById("colorSec2config").value,
+            points: 0,
+            foto: document.getElementById("foto").src
+
+        }
+
+        Storage.put("p2", perfil2);
         window.location.href = "juegos.html";
 
     }
@@ -127,25 +191,30 @@ function killStorage() {
 
 function takePicture() {
 
-    let cameraOptions = {
+    let cameraOps = {
 
-        quality: 25,
+        quality: 75,
         destinationType: Camera.DestinationType.DATA_URL
 
-    };
+    }
 
-    navigator.camera.getPicture(onSuccess, onFail, cameraOptions)
+    navigator.camera.getPicture(onSuccess, onFail, cameraOps);
 
+}
+
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+    console.log("device ready");
+    // document.getElementById("foto").addEventListener("click", cameraTakePicture);
 }
 
 function onSuccess(imgData) {
 
-document.getElementById("foto").src = "data:image/jpeg;base64," + imgData;
+    document.getElementById("foto").src = "data:image/jpeg;base64," + imgData;
 
 }
 
-function onFail() {
-
-    alert("No se pudo tomar la foto");
-
+function onFail(message) {
+    alert('Failed because: ' + message);
 }

@@ -16,10 +16,18 @@
         <input type="text" id="name1config" name="name1"><br><br>
         <input type="text" id="nick1config" name="nick1"><br><br>
         <input id="colorSec1config" type="color"><br>
-        <img id="foto" src="" alt="">
-        <button id="submit" onclick="confirmP1Values()">Confirmar</button>
+        <div id="botonesEimg">
+
+            <img id="foto" src="img/avatar.png" alt="">
+            <div id="btnsFoto">
+                <button id="submit" onclick="confirmP1Values()">Confirmar</button>
+                <button id="takefoto" onclick="takePicture()">Tomar Foto</button>
+            </div>
+
+        </div>
     </div>
 
+    <script src="cordova.js"></script>
     <script src="index.js"></script>
 
 </body>

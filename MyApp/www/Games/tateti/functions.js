@@ -19,8 +19,8 @@ let fondos = ["#17162D", "White", "Black", "Red", "Blue", "Yellow", 'url("img/bo
 
 function init() {
     asignadorToStart = (Math.floor(Math.random() * 2) + 1);
-    document.getElementById("p1TTT").innerHTML = Storage.get("nick1") + " es cruz";
-    document.getElementById("p2TTT").innerHTML = Storage.get("nick2") + " es circulo";
+    document.getElementById("p1TTT").innerHTML = Storage.get("p1").nick + " es cruz";
+    document.getElementById("p2TTT").innerHTML = Storage.get("p2").nick + " es circulo";
     let contenedorCont = document.getElementById("contenedor");
     let selBacks = document.getElementById("backgrounds");
     fondos.forEach(opcionescant => {
@@ -38,17 +38,16 @@ function init() {
         contenedorCont.appendChild(casillero);
         if (asignadorToStart == 1) {
             document.getElementById("p1TTT").style.color = "blue";
-            document.getElementById("p2TTT").style.color = Storage.get("color1");
+            document.getElementById("p2TTT").style.color = "white";
         } else {
-            document.getElementById("p1TTT").style.color = Storage.get("color2");
+            document.getElementById("p1TTT").style.color = "white";
             document.getElementById("p2TTT").style.color = "blue";
         }
         casillero.onclick = evt => {
             if (casillero.getAttribute("data-player-index") == null) {
-                let imgSeleccion = document.createElement("img");
                 if (asignadorToStart == 1) {
                     casillero.setAttribute("data-player-index", 1);
-                    imgSeleccion.setAttribute("src", "img/cruz.png");
+                    casillero.style.backgroundImage = "url('img/cruz.png')";
                     ocupaciones[evt.target.getAttribute("data-cell-index")] = 1;
                     for (let i = 0; i <= 7; i++) {
                         let combinacionesForWin = combinaciones[i];
@@ -61,9 +60,9 @@ function init() {
                         if (a === b && b === c) {
                             document.getElementById("contenedor").style.display = "none";
                             document.getElementById("nombres").style.display = "none";
-                            document.getElementById("winMsgInput").innerHTML = Storage.get("nick1") + " GANASTE!";
+                            document.getElementById("winMsgInput").innerHTML = Storage.get("p1").nick + " GANASTE!";
                             document.getElementById("winMsg").style.display = "block";
-                            Storage.put("points1", (Storage.get("points1") + 3));
+                            Storage.get("p1").points = Storage.get("p1").points + 3;
                             timer = setTimeout(backHome, 5000);
                             break;
                         }
@@ -73,7 +72,7 @@ function init() {
                     document.getElementById("p2TTT").style.color = "blue";
                 } else if(asignadorToStart != 1) {
                     casillero.setAttribute("data-player-index", 0);
-                    imgSeleccion.setAttribute("src", "img/circulo.png");
+                    casillero.style.backgroundImage = "url('img/circulo.png')";
                     ocupaciones[evt.target.getAttribute("data-cell-index")] = 0;
                     for (let i = 0; i <= 7; i++) {
                         let combinacionesForWin = combinaciones[i];
@@ -86,9 +85,9 @@ function init() {
                         if (a === b && b === c) {
                             document.getElementById("contenedor").style.display = "none";
                             document.getElementById("nombres").style.display = "none";
-                            document.getElementById("winMsgInput").innerHTML = Storage.get("nick2") + " GANASTE!";
+                            document.getElementById("winMsgInput").innerHTML = Storage.get("p2").nick + " GANASTE!";
                             document.getElementById("winMsg").style.display = "block";
-                            Storage.put("points2", (Storage.get("points2") + 3));
+                            Storage.get("p2").points = Storage.get("p2").points + 3;
                             timer = setTimeout(backHome, 5000);
                             break;
                         }
@@ -107,11 +106,10 @@ function init() {
                     document.getElementById("nombres").style.display = "none";
                     document.getElementById("winMsgInput").innerHTML = "EMPATE";
                     document.getElementById("winMsg").style.display = "block";
-                    Storage.put("points1", (Storage.get("points1") + 1));
-                    Storage.put("points2", (Storage.get("points2") + 1));
+                    Storage.get("p1").points = Storage.get("p1").points + 1;
+                    Storage.get("p2").points = Storage.get("p2").points + 1;
                     timer = setTimeout(backHome, 5000);
             }
-                evt.target.appendChild(imgSeleccion);
 
 
                 
@@ -123,6 +121,6 @@ function init() {
 
 function backHome() {
 
-    window.location.href = "../../juegos.html";
+    window.location.href = "rematch.html";
 
 }
