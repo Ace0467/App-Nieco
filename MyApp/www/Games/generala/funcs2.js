@@ -335,8 +335,9 @@ function playGen() {
             if (estadoDelJuego.asignadorToStart === 1) {
 
                 document.getElementById("contenedorDados").style.display = "none";
-                document.getElementById("manos").style.display = "none";
+                // document.getElementById("manos").style.display = "none";
                 document.getElementById("nombres").style.display = "none";
+                document.getElementById("contenedorAll").style.display = "block";
                 document.getElementById("winMsgInput").innerHTML = "¡JUGADOR 1, GANASTE!";
                 document.getElementById("winMsg").style.display = "block";
                 document.getElementById("refresh").style.display = "block";
@@ -347,8 +348,9 @@ function playGen() {
             } else {
 
                 document.getElementById("contenedorDados").style.display = "none";
-                document.getElementById("manos").style.display = "none";
+                // document.getElementById("manos").style.display = "none";
                 document.getElementById("nombres").style.display = "none";
+                document.getElementById("contenedorAll").style.display = "block";
                 document.getElementById("winMsgInput").innerHTML = "¡JUGADOR 2, GANASTE!";
                 document.getElementById("winMsg").style.display = "block";
                 document.getElementById("refresh").style.display = "block";
@@ -585,7 +587,6 @@ function finishTurn() {
 
             document.getElementById("nombre1").style.color = p1.color;
             document.getElementById("nombre2").style.color = "blue";
-
             estadoDelJuego.asignadorToStart = 2;
             console.log("ahora va el otro 1");
 
@@ -612,36 +613,38 @@ function finishTurn() {
         if (document.getElementById("jugador1_puntos").innerHTML > document.getElementById("jugador2_puntos").innerHTML) {
 
             document.getElementById("contenedorDados").style.display = "none";
-            document.getElementById("manos").style.display = "none";
+            // document.getElementById("manos").style.display = "none";
             document.getElementById("nombres").style.display = "none";
+            document.getElementById("contenedorAll").style.display = "block";
             document.getElementById("winMsgInput").innerHTML = p1.nick + " GANASTE!";
             document.getElementById("winMsgInput").style.color = p1.color;
             document.getElementById("winMsg").style.display = "block";
             p1.points += 5;
             Storage.put("p1", p1);
-            timer = setTimeout(backHome, 5000);
+            timer = setTimeout(backHome, 7500);
 
 
         } else if (document.getElementById("jugador1_puntos").innerHTML < document.getElementById("jugador2_puntos").innerHTML) {
 
             document.getElementById("contenedorDados").style.display = "none";
-            document.getElementById("manos").style.display = "none";
+            // document.getElementById("manos").style.display = "none";
             document.getElementById("nombres").style.display = "none";
+            document.getElementById("contenedorAll").style.display = "block";
             document.getElementById("winMsgInput").innerHTML = p2.nick + " GANASTE!";
             document.getElementById("winMsgInput").style.color = p2.color;
             document.getElementById("winMsg").style.display = "block";
             p2.points += 5;
             Storage.put("p2", p2);
-            timer = setTimeout(backHome, 5000);
+            timer = setTimeout(backHome, 7500);
 
 
         } else if (document.getElementById("jugador1_puntos").innerHTML === document.getElementById("jugador2_puntos").innerHTML) {
 
             document.getElementById("contenedorDados").style.display = "none";
-            document.getElementById("manos").style.display = "none";
+            // document.getElementById("manos").style.display = "none";
             document.getElementById("nombres").style.display = "none";
+            document.getElementById("contenedorAll").style.display = "block";
             document.getElementById("winMsgInput").innerHTML = "EMPATE";
-            document.getElementById("refresh").style.display = "block";
             document.getElementById("winMsg").style.display = "block";
             p1.points += 10;
             Storage.put("p1", p1);
