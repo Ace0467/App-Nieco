@@ -1,6 +1,6 @@
 let fotoSrc;
 
-function confirmarPlayerOne() {
+function confirmarPlayer() {
 
     if (document.getElementById("name").value === "" || document.getElementById("nick").value === "") {
 
@@ -19,18 +19,37 @@ function confirmarPlayerOne() {
                 alert("Tomate una foto por favor! No tengas miedo!");
 
             } else {
+                if (Storage.get("p1") === null) {
+                    let perfil1 = {
 
-                let perfil1 = {
+                        nombre: document.getElementById("name").value,
+                        nick: document.getElementById("nick").value,
+                        color: document.getElementById("colorSec").value,
+                        foto: document.getElementById("foto").src,
+                        points: 0
 
-                    nombre: document.getElementById("name").value,
-                    nick: document.getElementById("nick").value,
-                    color: document.getElementById("colorSec").value,
-                    foto: document.getElementById("foto").src,
-                    points: 0
+                    }
+                    Storage.put("p1", perfil1);
+                } else if (Storage.get("p1") != null && Storage.get("p2") === null) {
+                    if (document.getElementById("colorSec").value === Storage.get("p1").color) {
 
+                        alert("¡Cambie el color!")
+
+                    } else {
+
+                        let perfil2 = {
+
+                            nombre: document.getElementById("name").value,
+                            nick: document.getElementById("nick").value,
+                            color: document.getElementById("colorSec").value,
+                            foto: document.getElementById("foto").src,
+                            points: 0
+
+                        }
+                        Storage.put("p2", perfil2);
+                        window.location.href = "juegos.html";
+                    }
                 }
-                Storage.put("p1", perfil1);
-                window.location.href = "playertwo.html";
 
             }
 
@@ -61,7 +80,7 @@ function checkProfile2() {
     if (Storage.get("p1") === null && Storage.get("p2") === null) {
 
         Storage.kill();
-        window.location.href = "index.html";        
+        window.location.href = "index.html";
 
     }
 

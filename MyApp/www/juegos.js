@@ -15,3 +15,15 @@ function loadConfig() {
     document.getElementById("conf2").innerHTML = "Modificar perfil 2: " + Storage.get("p2").nick;
 
 }
+
+function checkProfile() {
+
+    if (Storage.get("p1") === null || Storage.get("p2") === null) {
+
+        Storage.kill();
+        window.location.href = "index.html";
+      
+
+    }
+
+}
