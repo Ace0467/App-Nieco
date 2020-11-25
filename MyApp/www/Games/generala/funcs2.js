@@ -332,13 +332,19 @@ function playGen() {
     if (arrDados[0] === arrDados[1] && arrDados[1] === arrDados[2] && arrDados[2] === arrDados[3] && arrDados[3] === arrDados[4] && !arrDados.includes("") && arrDados != []) {
 
         if (movsPendientes === 2) {
+            let puntosJug1 = document.getElementById("jugador1_puntos").innerHTML;
+            Storage.put("p1pointsGen", puntosJug1)
+            let puntosJug2 = document.getElementById("jugador2_puntos").innerHTML;
+            Storage.put("p2pointsGen", puntosJug2)
             if (estadoDelJuego.asignadorToStart === 1) {
 
                 document.getElementById("contenedorDados").style.display = "none";
-                // document.getElementById("manos").style.display = "none";
+                document.getElementById("manos").style.display = "none";
                 document.getElementById("nombres").style.display = "none";
                 document.getElementById("contenedorAll").style.display = "block";
-                document.getElementById("winMsgInput").innerHTML = "¡JUGADOR 1, GANASTE!";
+                document.getElementById("winMsgInput").innerHTML = "¡" + p1.nick + ", GANASTE!";
+                document.getElementById("winMsgInputP1").innerHTML = p1.nick + " " + Storage.get("p1pointsGen");
+                document.getElementById("winMsgInputP2").innerHTML = p2.nick + " " + Storage.get("p2pointsGen");
                 document.getElementById("winMsg").style.display = "block";
                 document.getElementById("refresh").style.display = "block";
                 p1.points += 10;
@@ -348,10 +354,12 @@ function playGen() {
             } else {
 
                 document.getElementById("contenedorDados").style.display = "none";
-                // document.getElementById("manos").style.display = "none";
+                document.getElementById("manos").style.display = "none";
                 document.getElementById("nombres").style.display = "none";
                 document.getElementById("contenedorAll").style.display = "block";
-                document.getElementById("winMsgInput").innerHTML = "¡JUGADOR 2, GANASTE!";
+                document.getElementById("winMsgInput").innerHTML = "¡" + p2.nick + ", GANASTE!";
+                document.getElementById("winMsgInputP1").innerHTML = p1.nick + " " + Storage.get("p1pointsGen");
+                document.getElementById("winMsgInputP2").innerHTML = p2.nick + " " + Storage.get("p2pointsGen");
                 document.getElementById("winMsg").style.display = "block";
                 document.getElementById("refresh").style.display = "block";
                 p2.points += 10;
@@ -579,7 +587,7 @@ function finishTurn() {
 
     totalPoints();
 
-    if (estadoDelJuego.rounds != 21) {
+    if (estadoDelJuego.rounds != 3) {
 
         if (estadoDelJuego.asignadorToStart === 1) {
 
@@ -595,7 +603,7 @@ function finishTurn() {
             contenedorCont.innerHTML = "";
 
             document.getElementById("nombre1").style.color = "blue";
-            document.getElementById("nombre2").style.color =  p2.color;
+            document.getElementById("nombre2").style.color = p2.color;
 
             estadoDelJuego.asignadorToStart = 1;
             console.log("ahora va el otro 2");
@@ -610,13 +618,20 @@ function finishTurn() {
 
     } else {
 
+        let puntosJug1 = document.getElementById("jugador1_puntos").innerHTML;
+        Storage.put("p1pointsGen", puntosJug1)
+        let puntosJug2 = document.getElementById("jugador2_puntos").innerHTML;
+        Storage.put("p2pointsGen", puntosJug2)
+
         if (document.getElementById("jugador1_puntos").innerHTML > document.getElementById("jugador2_puntos").innerHTML) {
 
             document.getElementById("contenedorDados").style.display = "none";
-            // document.getElementById("manos").style.display = "none";
+            document.getElementById("manos").style.display = "none";
             document.getElementById("nombres").style.display = "none";
             document.getElementById("contenedorAll").style.display = "block";
-            document.getElementById("winMsgInput").innerHTML = p1.nick + " GANASTE!";
+            document.getElementById("winMsgInput").innerHTML = "¡" + p1.nick + ", GANASTE!";
+            document.getElementById("winMsgInputP1").innerHTML = p1.nick + " " + Storage.get("p1pointsGen");
+            document.getElementById("winMsgInputP2").innerHTML = p2.nick + " " + Storage.get("p2pointsGen");
             document.getElementById("winMsgInput").style.color = p1.color;
             document.getElementById("winMsg").style.display = "block";
             p1.points += 5;
@@ -627,10 +642,12 @@ function finishTurn() {
         } else if (document.getElementById("jugador1_puntos").innerHTML < document.getElementById("jugador2_puntos").innerHTML) {
 
             document.getElementById("contenedorDados").style.display = "none";
-            // document.getElementById("manos").style.display = "none";
+            document.getElementById("manos").style.display = "none";
             document.getElementById("nombres").style.display = "none";
             document.getElementById("contenedorAll").style.display = "block";
-            document.getElementById("winMsgInput").innerHTML = p2.nick + " GANASTE!";
+            document.getElementById("winMsgInput").innerHTML = "¡" + p2.nick + ", GANASTE!";
+            document.getElementById("winMsgInputP1").innerHTML = p1.nick + " " + Storage.get("p1pointsGen");
+            document.getElementById("winMsgInputP2").innerHTML = p2.nick + " " + Storage.get("p2pointsGen");
             document.getElementById("winMsgInput").style.color = p2.color;
             document.getElementById("winMsg").style.display = "block";
             p2.points += 5;
@@ -641,10 +658,12 @@ function finishTurn() {
         } else if (document.getElementById("jugador1_puntos").innerHTML === document.getElementById("jugador2_puntos").innerHTML) {
 
             document.getElementById("contenedorDados").style.display = "none";
-            // document.getElementById("manos").style.display = "none";
+            document.getElementById("manos").style.display = "none";
             document.getElementById("nombres").style.display = "none";
             document.getElementById("contenedorAll").style.display = "block";
             document.getElementById("winMsgInput").innerHTML = "EMPATE";
+            document.getElementById("winMsgInputP1").innerHTML = p1.nick + " " + Storage.get("p1pointsGen");
+            document.getElementById("winMsgInputP2").innerHTML = p2.nick + " " + Storage.get("p2pointsGen");
             document.getElementById("winMsg").style.display = "block";
             p1.points += 10;
             Storage.put("p1", p1);

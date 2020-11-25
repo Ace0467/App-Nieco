@@ -30,7 +30,7 @@ function confirmarPlayer() {
 
                     }
                     Storage.put("p1", perfil1);
-                    document.getElementById("submit").innerHTML = "Confirmar Jugador 2";
+                    document.getElementById("submita").innerHTML = "Confirmar Jugador 2";
                 } else if (Storage.get("p1") != null && Storage.get("p2") === null) {
                     if (document.getElementById("colorSec").value === Storage.get("p1").color) {
 
