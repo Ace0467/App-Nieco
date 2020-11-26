@@ -31,17 +31,16 @@ function confirmarPlayer() {
                     }
                     Storage.put("p1", perfil1);
                     document.getElementById("submit").innerHTML = "Confirmar Jugador 2";
-                    document.getElementById("name").value = "";
-                    document.getElementById("nick").value = "";
+                    document.getElementById("foto").src = "";
                 } else if (Storage.get("p1") != null && Storage.get("p2") === null) {
                     if (document.getElementById("colorSec").value === Storage.get("p1").color) {
 
                         alert("¡Cambie el color!")
 
-                    } else if (document.getElementById("foto").src === Storage.get("p1").foto) {
+                    } else if (document.getElementById("foto").src === "") {
 
                         alert("Tomate una foto por favor! No tengas miedo!");
-        
+
                     } else {
 
                         let perfil2 = {
