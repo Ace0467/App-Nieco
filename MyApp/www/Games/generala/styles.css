@@ -49,12 +49,12 @@ h2{
     cursor: pointer;
 }
 
-#contenedorDados div:hover{
+/* #contenedorDados div:hover{
     cursor: pointer;
     transform: scale(1.5);
     opacity: 0.5;
     transition: 0.3s;
-}
+} */
 
 #contenedorDados div img{
     width: 100%;

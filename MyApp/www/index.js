@@ -34,6 +34,7 @@ function confirmarPlayer() {
                     document.getElementById("name").value = "";
                     document.getElementById("nick").value = "";
                     document.getElementById("foto").style.display = "none";
+                    document.getElementById("foto2").style.display = "block";
                 } else if (Storage.get("p1") != null && Storage.get("p2") === null) {
                     if (document.getElementById("colorSec").value === Storage.get("p1").color) {
 
@@ -123,7 +124,15 @@ function onDeviceReady() {
 
 function onSuccess(imgData) {
 
+    if (Storage.get("p1") === null) {
+
     document.getElementById("foto").src = "data:image/jpeg;base64," + imgData;
+
+    } else if (Storage.get("p1") != null && Storage.get("p2") === null) {
+
+        document.getElementById("foto2").src = "data:image/jpeg;base64," + imgData;
+
+    }
 
 }
 

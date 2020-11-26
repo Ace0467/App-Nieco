@@ -167,11 +167,12 @@ input::placeholder{
     width: 35%;
     margin: 1em auto 0 auto;
     border-radius: 50%;
+    display: none;
 
 }
 
 @media (max-width: 500px) {
-
+    
     h2{
 
         font-size: 1em;
@@ -249,6 +250,16 @@ input::placeholder{
   }
 
   @media (min-width: 501px) {
+    body{
+        
+        text-align: center;
+    }
+
+    #info{
+
+        text-align: center;
+
+    }
 
     h2{
 
@@ -277,5 +288,6 @@ input::placeholder{
         width: 50%;
 
     }
+
 
   }
