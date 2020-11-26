@@ -587,7 +587,7 @@ function finishTurn() {
 
     totalPoints();
 
-    if (estadoDelJuego.rounds != 3) {
+    if (estadoDelJuego.rounds != 21) {
 
         if (estadoDelJuego.asignadorToStart === 1) {
 
