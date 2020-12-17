@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="styles.css">
@@ -10,7 +9,6 @@
     <link rel="icon" href="img/simon.png" type="img/simon.png">
     <title>My man Simon says...</title>
 </head>
-
 <body onload="init()">
     <div id="contenedorAll">
         <div id="nombres">
@@ -19,25 +17,17 @@
             <h2 id="nombre2"></h2>
             <h2 id="rounds" class="begin" onclick="init2()">Empezar Juego</h2>
         </div>
-
         <div id="contenedor">
-            <div id="green" data-color-index="0"><img id="greenImg" src="img/green.png" alt="" data-color-index="0">
-            </div>
-            <div id="red" data-color-index="1"><img id="redImg" src="img/red.jpg" alt="" data-color-index="1"></div>
-            <div id="yellow" data-color-index="2"><img id="yellowImg" src="img/yellow.jpg" alt="" data-color-index="2">
-            </div>
-            <div id="blue" data-color-index="3"><img id="blueImg" src="img/blue.png" alt="" data-color-index="3"></div>
+            <div id="green" data-color-index="0"></div>
+            <div id="red" data-color-index="1"></div>
+            <div id="yellow" data-color-index="2"></div>
+            <div id="blue" data-color-index="3"></div>
         </div>
-
         <div id="winMsg">
             <h1 id="winMsgInput"></h1>
         </div>
     </div>
-
     <script src="../../jslib.js"></script>
     <script src="functions.js"></script>
-
-
 </body>
-
 </html>

@@ -8,6 +8,49 @@ body{
     margin: 0 1em 0 auto;
 }
 
+#rembtns{
+    margin: 0 auto;
+    text-align: center;
+}
+.rematchBtns{
+    font-size: 1.5em;
+    font-family: 'Squada One', cursive;
+    width: 100%;
+    background-color: #8E8E8E;
+    margin: 1.5em auto 0 auto;
+    padding: 0.5em;
+}
+
+#green{
+
+    border-top-left-radius: 50%;
+    background-color: green;
+    opacity: 0.5;
+
+}
+
+#blue{
+    background-color: blue;
+    opacity: 0.5;
+    border-bottom-right-radius: 50%;
+}
+
+#red{
+    background-color: red;
+    opacity: 0.5;
+    border-top-right-radius: 50%;
+}
+#yellow{
+    background-color: yellow;
+    opacity: 0.5;
+    border-bottom-left-radius: 50%; 
+}
+.sonando{
+
+    opacity: 1 !important;
+
+}
+
 h1{
     color: white;
     font-family: 'Squada One', cursive;
@@ -45,34 +88,24 @@ h2{
 
 #contenedor{
     background-color: #8E8E8E;
-    border-radius: 0.5em;
+    border-radius: 25%;
     padding: 1em;
     text-align: center;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     width: 20%;
     max-width: 630px;
     margin: 1% auto 0 auto;
+    overflow: hidden;
 }
 
 #contenedor div{
-    display: inline-block;
-    width: 100px;
-    height: 100px;
-    margin: 0.25em;
+    width: 6rem;
+    height: 6rem;
+    margin: 0.4em;
     border: 5px solid black;
+    float: left;
 }
 
-#contenedor div:hover{
-    cursor: pointer;
-    transform: scale(1.2);
-    opacity: 0.5;
-    transition: 0.3s;
-}
-
-#contenedor div img{
-    width: 100%;
-    display: none;
-}
 
 #winMsg{
     display: none;
@@ -112,18 +145,14 @@ select{
     }
 
     #contenedor{
-        width: 50%;
+        width: 70%;
         margin: 5% auto 0 auto;
     }
 
     #contenedor div{
-
-        display: inline-block;
-        width: 70px;
-        height: 70px;
-        margin: 0.5em;
-        
-    
+        width: 7rem;
+        height: 7rem;
+        margin: 0.5em !important;    
     }
 
     #nombres{
@@ -155,9 +184,13 @@ select{
 
     #contenedor{
 
-        width: 25%;
+        width: 30%;
         margin: 1% auto 0 auto;
     }
+
+    /* #contenedor div{
+        width: 39%;
+    } */
 
     #contenedorAll{
 
@@ -178,12 +211,4 @@ select{
 
     }
 
-    #contenedor div{
-
-        display: inline-block;
-        width: 70px;
-        height: 70px;
-        margin: 0.5em;
-        
     
-    }

@@ -16,7 +16,6 @@ let combinaciones = [
 ];
 let fondos = ["#17162D", "White", "Black", "Red", "Blue", "Yellow", 'url("img/boke.jpg")'];
 
-
 function init() {
     asignadorToStart = (Math.floor(Math.random() * 2) + 1);
     document.getElementById("p1TTT").innerHTML = Storage.get("p1").nick + " es cruz";
@@ -62,9 +61,9 @@ function init() {
                             document.getElementById("winMsgInput").innerHTML = p1.nick + " GANASTE!";
                             document.getElementById("winMsgInput").style.color = p1.color;
                             document.getElementById("winMsg").style.display = "block";
-                            p1.points += 3;
+                            p1.points = p1.points + 3;
                             Storage.put("p1", p1);
-                            timer = setTimeout(backHome, 5000);
+                            timer = setTimeout(backHome, 3000);
                             break;
                         }
                     }
@@ -88,42 +87,30 @@ function init() {
                             document.getElementById("winMsgInput").innerHTML = p2.nick + " GANASTE!";
                             document.getElementById("winMsgInput").style.color = p2.color;
                             document.getElementById("winMsg").style.display = "block";
-                            p2.points = + 3;
+                            p2.points = p2.points + 3;
                             Storage.put("p2", p2);
-                            timer = setTimeout(backHome, 5000);
+                            timer = setTimeout(backHome, 3000);
                             break;
                         }
                     }
-
-
-
                     asignadorToStart = 1;
                     document.getElementById("p1TTT").style.color = "blue";
                     document.getElementById("p2TTT").style.color = p2.color;
-
-
                 } else if (!ocupaciones.includes("")) {
-
                     document.getElementById("nombres").style.display = "none";
                     document.getElementById("winMsgInput").innerHTML = "EMPATE";
                     document.getElementById("winMsg").style.display = "block";
-                    p1.points = + 3;
+                    p1.points = p1.points + 1;
                     Storage.put("p1", p1);
-                    p2.points = + 3;
+                    p2.points = p2.points + 1;
                     Storage.put("p2", p2);
-                    timer = setTimeout(backHome, 5000);
+                    timer = setTimeout(backHome, 3000);
                 }
-
-
-
             };
         };
     }
 }
 
-
 function backHome() {
-
     window.location.href = "rematch.html";
-
 }

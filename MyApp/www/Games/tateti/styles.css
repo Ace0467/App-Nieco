@@ -7,7 +7,6 @@ body{
     width: 100%;
     margin: 0 1em 0 auto;
 }
-
 h1{
     color: white;
     font-family: 'Squada One', cursive;
@@ -17,7 +16,6 @@ h1{
     margin: 0.5em auto 0 auto;
     border-radius: 1em;
 }
-
 h2{
     color: white;
     font-family: 'Squada One', cursive;
@@ -27,38 +25,25 @@ h2{
     margin: 0.5em auto 0 auto;
     border-radius: 1em;
 }
-
 #rembtns{
-
     margin: 0 auto;
     text-align: center;
-
 }
-
 .rematchBtns{
-
     font-size: 1.5em;
     font-family: 'Squada One', cursive;
     width: 100%;
     background-color: #8E8E8E;
     margin: 1.5em auto 0 auto;
     padding: 0.5em;
-
 }
-
-
-
-
 #nombres{
        /* background-color: #8E8E8E; */
        border-radius: 0.5em;
        /* padding: 0.25em; */
        text-align: center;
        /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
-
 }
-
-
 #contenedor{
     background-color: #8E8E8E;
     border-radius: 0.5em;
@@ -68,11 +53,9 @@ h2{
     width: 39%;
     margin: 1% auto 0 auto;
 }
-
 #contenedorAll{
     text-align: center;
 }
-
 #contenedor div{
     display: inline-block;
     width: 100px;
@@ -82,18 +65,15 @@ h2{
     background-position: center;
     background-size: cover;
 }
-
 #contenedor div:hover{
     cursor: pointer;
     transform: scale(1.5);
     opacity: 0.5;
     transition: 0.3s;
 }
-
 #contenedor div img{
     width: 100%;
 }
-
 #winMsg{
     display: none;
     background-color: #8E8E8E;
@@ -104,39 +84,27 @@ h2{
     width: 75%;
     margin: 2em auto 0 auto;
 }
-
 select{
     display: none;
 }
-
 @media screen and (max-width: 500px) {
-
     h1{
-
         font-size: 1em;
-
     }
-
     h2{
-
         font-size: 1.5em;
         width: 75%;
-
     }
-
     #contenedorAll{
         text-align: center;
         width: 100%;
         margin: 0 1em 0 auto;
     }
-
     #contenedor{
         width: 75%;
         margin: 5% auto 0 auto;
     }
-
     #contenedor div{
-
         display: inline-block;
         width: 70px;
         height: 70px;
@@ -144,59 +112,38 @@ select{
         
     
     }
-
     #nombres{
-
         width: 100%;
-
     }
-
   }
-
 @media screen and (min-width: 501px)  {
-
     #winMsg{
         width: 50%;
     }
-
     h1{
-
         font-size: 1em;
-
     }
-
     h2{
-
         font-size: 1.5em;
         width: 75%;
-
     }
-
     #contenedor{
-
         width: 39%;
         margin: 1% auto 0 auto;
     }
-
     #contenedorAll{
-
         display: inline-flex;
         height: 90vh;
         align-items: center;
         text-align: center;
     
-
         
 }
-
 #nombres{
     width: 50%;
 }
-
     }
-
     #contenedor div{
-
         display: inline-block;
         width: 70px;
         height: 70px;

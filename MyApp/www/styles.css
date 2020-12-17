@@ -2,31 +2,21 @@ body{
     background: #17162D;
     text-align: center;
 }
-
 .bodyIndex{
-
     align-items: center;
     display: flex;
     height: 100vh;
-
 }
-
 h2{
-
     background-color: #8E8E8E;
     margin: 0;
     padding: 0.5em;
     font-family: 'Squada One', cursive;
     color: white;
-
 }
-
 #contAll{
-
     text-align: center;
-
 }
-
 .names{
     
     background-color: none;
@@ -34,197 +24,130 @@ h2{
     width: 25%;
     margin: 5px;
     border-radius: 10px
-
 }
-
 #contGames{
-
     display: inline-flex;
     width: 59%;
-
 }
-
 #configProfile:hover{
-
     cursor: pointer;
     transform: scale(1.15);
     opacity: 0.5;
     transition: 0.5s;
-
 }
-
 .namesConfig:hover{
-
     cursor: pointer;
     transform: scale(1.15);
     opacity: 0.5;
     transition: 0.5s;
-
 }
-
 .namesConfig{
-
     background-color: none;
     padding: 0.5em;
     width: 25%;
     margin: 10px auto;
     border-radius: 10px
-
 }
-
 .game{
-
     width: 37.5%;
     padding: 2em;
     text-align: center;
     
 }
-
 #contGames div :hover{
-
     cursor: pointer;
     opacity: 0.5;
     transition: 0.3s;
-
 }
-
-
 #imagen img{
-
     width: 100%;
     
-
 }
-
 #info{
-
     background-color: #8E8E8E;
     width: 25%;
     margin: 0 auto;
     padding: 1.5em;
     display: block;
     text-align: center;;
-
 }
-
 #colorSec{
-
     width: 50%;
-
 }
-
 #colorSec2{
-
     width: 50%;
-
 }
-
 .imgHome {
-
     width: 35%;
     border-radius: 50%;
-
 }
-
 #jugador1{
-
 width: 50%;
 display: inline-flex;
 align-items: center;
-
 }
-
 #jugador2{
-
     width: 50%;
     display: inline-flex;
     align-items: center;
     
     }
-
 input::placeholder{
-
     font-family: 'Squada One', cursive;
     font-size: 1.25em;
-
 }
-
 #submit{
-
     font-family: 'Squada One', cursive;
     font-size: 1.5em;
     width: 100%;
-
 }
-
 #takefoto{
-
     font-family: 'Squada One', cursive;
     font-size: 1.5em;
     margin: 1em auto 0 auto;
-
 }
-
 #foto{
-
     width: 35%;
     margin: 1em auto 0 auto;
     border-radius: 50%;
-
 }
-
 #foto2{
-
     width: 35%;
     margin: 1em auto 0 auto;
     border-radius: 50%;
     display: none;
-
 }
-
 @media (max-width: 500px) {
     
     h2{
-
         font-size: 1em;
-
     }
     
     #contGames{
-
         display: block;
         width: 75%;
         margin: auto;
     
     }
-
     .game{
-
         margin: 0 auto;
     
     }
-
     .names{
-
         margin-top: 5px;
         margin-left: 10%;
         padding: 0.25em;
         font-size: 1em;
         width: 50%;
-
     }
-
     .namesConfig{
-
         margin-top: 5px;
         padding: 0.25em;
         font-size: 1em;
         width: 50%;
     
     }
-
     #info{
-
         width: 60%;
     
     }
@@ -249,63 +172,40 @@ input::placeholder{
         font-size: 1.5em;
     
     }
-
     .imgHome {
-
         width: 24%;
         height: 10%;
         border-radius: 50%;
     
     }
-
   }
-
   @media (min-width: 501px) {
     body{
         
         text-align: center;
     }
-
     #info{
-
         text-align: center;
         width: 35%;
-
     }
-
     h2{
-
         font-size: 1em;
-
     }
-
     #contGames{
-
         width: 70%;
-
     }
-
     .game{
-
         width: 50%;
-
     }
-
     .imgHome {
-
         width: 12%;
         height: 7.5%;
         border-radius: 50%;
     
     }
-
     .names{
-
         margin-top: 5px;
         margin-left: 10%;
         width: 50%;
-
     }
-
-
   }

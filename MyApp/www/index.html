@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="utf-8" />
     <script src="jslib.js"></script>
@@ -10,29 +9,21 @@
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <title>App</title>
 </head>
-
 <body onload="checkProfile()" class="bodyIndex">
     <div id="info">
         <input type="text" id="name" name="name" placeholder="Ingrese su nombre"><br><br>
         <input type="text" id="nick" name="nick" placeholder="Ingrese su nick"><br><br>
         <input id="colorSec" type="color"><br>
-
         <div id="botonesEimg">
-
             <img id="foto" alt="">
             <img id="foto2" alt="">
             <div id="btnsFoto">
                 <button id="submit" onclick="confirmarPlayer()">Confirmar Jugador 1</button>
                 <button id="takefoto" onclick="takePicture()">Tomar Foto</button>
             </div>
-
         </div>
     </div>
-
-
     <script src="cordova.js"></script>
     <script src="index.js"></script>
-
 </body>
-
 </html>
