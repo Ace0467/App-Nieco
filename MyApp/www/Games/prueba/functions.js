@@ -27,6 +27,12 @@ let rondas = 1;
 let roundsPlayer = 0;
 let limit = 20;
 
+function cambiarColor(){
+
+    document.getElementById("greenImg").style.display = "block";
+
+}
+
 function init() {
 
     document.getElementById("nombre1").innerHTML = p1.nick + ": " + player1points;

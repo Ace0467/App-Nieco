@@ -58,7 +58,6 @@ function init() {
                             continue;
                         }
                         if (a === b && b === c) {
-                            document.getElementById("contenedor").style.display = "none";
                             document.getElementById("nombres").style.display = "none";
                             document.getElementById("winMsgInput").innerHTML = p1.nick + " GANASTE!";
                             document.getElementById("winMsgInput").style.color = p1.color;
@@ -72,7 +71,7 @@ function init() {
                     asignadorToStart = 0;
                     document.getElementById("p1TTT").style.color = p1.color;
                     document.getElementById("p2TTT").style.color = "blue";
-                } else if(asignadorToStart != 1) {
+                } else if (asignadorToStart != 1) {
                     casillero.setAttribute("data-player-index", 0);
                     casillero.style.backgroundImage = "url('img/circulo.png')";
                     ocupaciones[evt.target.getAttribute("data-cell-index")] = 0;
@@ -85,18 +84,17 @@ function init() {
                             continue;
                         }
                         if (a === b && b === c) {
-                            document.getElementById("contenedor").style.display = "none";
                             document.getElementById("nombres").style.display = "none";
                             document.getElementById("winMsgInput").innerHTML = p2.nick + " GANASTE!";
                             document.getElementById("winMsgInput").style.color = p2.color;
                             document.getElementById("winMsg").style.display = "block";
-                            p2.points =+ 3;
+                            p2.points = + 3;
                             Storage.put("p2", p2);
                             timer = setTimeout(backHome, 5000);
                             break;
                         }
-                    } 
-                    
+                    }
+
 
 
                     asignadorToStart = 1;
@@ -104,21 +102,20 @@ function init() {
                     document.getElementById("p2TTT").style.color = p2.color;
 
 
-                } else if(!ocupaciones.includes("")) {
-                         
-                    document.getElementById("contenedor").style.display = "none";
+                } else if (!ocupaciones.includes("")) {
+
                     document.getElementById("nombres").style.display = "none";
                     document.getElementById("winMsgInput").innerHTML = "EMPATE";
                     document.getElementById("winMsg").style.display = "block";
-                    p1.points =+ 3;
+                    p1.points = + 3;
                     Storage.put("p1", p1);
-                    p2.points =+ 3;
+                    p2.points = + 3;
                     Storage.put("p2", p2);
                     timer = setTimeout(backHome, 5000);
-            }
+                }
 
 
-                
+
             };
         };
     }

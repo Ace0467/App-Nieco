@@ -20,7 +20,7 @@ function confirmP2Values() {
             nombre: document.getElementById("name2config").value,
             nick: document.getElementById("nick2config").value,
             color: document.getElementById("colorSec2config").value,
-            points: 0,
+            points: Storage.get("p2").points,
             foto: document.getElementById("foto").src
 
         }
@@ -30,4 +30,33 @@ function confirmP2Values() {
 
     }
 
+}
+
+function takePicture() {
+
+    let cameraOps = {
+
+        quality: 75,
+        destinationType: Camera.DestinationType.DATA_URL
+
+    }
+
+    navigator.camera.getPicture(onSuccess, onFail, cameraOps);
+
+}
+
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+    // document.getElementById("foto").addEventListener("click", cameraTakePicture);
+}
+
+function onSuccess(imgData) {
+
+    document.getElementById("foto").src = "data:image/jpeg;base64," + imgData;
+
+}
+
+function onFail(message) {
+    alert('Failed because: ' + message);
 }

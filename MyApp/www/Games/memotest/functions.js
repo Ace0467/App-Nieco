@@ -1,5 +1,5 @@
 let contenedorCont = document.getElementById("contenedor");
-
+var timer;
 let points = 0;
 
 var timer;
@@ -9,14 +9,19 @@ let contador = 0;
 let contadorSel = 0;
 
 
-
+let p = Storage.get(Storage.get("jugadorMemotest"));
+let p1 = Storage.get("p1");
+let p2 = Storage.get("p2");
 
 let imgSrc = [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6];
 let arrForCheck = ["", ""];
+let jugador;
 
 function init() {
 
-    asignadorToStart = Math.floor(Math.random() * 2);
+
+    document.getElementById("nombre1").innerHTML = "Jugando como " +  Storage.get(Storage.get("jugadorMemotest")).nick;
+    document.getElementById("nombre1").style.color = Storage.get(Storage.get("jugadorMemotest")).color;
 
     shuffle(imgSrc);
 
@@ -72,8 +77,14 @@ function init() {
 
                                     document.getElementById("contenedor").style.display = "none";
                                     document.getElementById("nombres").style.display = "none";
-                                    document.getElementById("winMsgInput").innerHTML = " GANASTE!";
+                                    document.getElementById("winMsgInput").innerHTML = Storage.get(Storage.get("jugadorMemotest")).nick + " GANASTE!";
+                                    document.getElementById("winMsgInput").style.color = Storage.get(Storage.get("jugadorMemotest")).color;
                                     document.getElementById("winMsg").style.display = "block";
+                                    document.getElementById("contenedorAll").style.display = "flex";
+                                    p.points = p.points + 6;
+                                    Storage.put(Storage.get("jugadorMemotest"), p)
+                                    timer = setTimeout(backHome, 5000);
+
 
                                 }
 
@@ -133,5 +144,27 @@ function disappear() {
     console.log("incorrecto");
 
     arrForCheck = ["", ""];
+
+}
+
+function loadConfig() {
+
+    document.getElementById("rem1").innerHTML = "Jugar como " + p1.nick;
+    document.getElementById("rem1").style.color = p1.color;
+    document.getElementById("rem2").innerHTML = "Jugar como " + p2.nick;
+    document.getElementById("rem2").style.color = p2.color;
+
+}
+
+function choosePlayer(player) {
+
+    window.location.href = "index.html";
+    Storage.put("jugadorMemotest", player);
+
+}
+
+function backHome() {
+
+    window.location.href = "rematch.html";
 
 }

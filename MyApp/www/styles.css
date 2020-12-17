@@ -3,6 +3,14 @@ body{
     text-align: center;
 }
 
+.bodyIndex{
+
+    align-items: center;
+    display: flex;
+    height: 100vh;
+
+}
+
 h2{
 
     background-color: #8E8E8E;
@@ -64,9 +72,9 @@ h2{
 
 }
 
-#game{
+.game{
 
-    width: 45%;
+    width: 37.5%;
     padding: 2em;
     text-align: center;
     
@@ -122,6 +130,7 @@ h2{
 
 width: 50%;
 display: inline-flex;
+align-items: center;
 
 }
 
@@ -129,6 +138,7 @@ display: inline-flex;
 
     width: 50%;
     display: inline-flex;
+    align-items: center;
     
     }
 
@@ -143,6 +153,7 @@ input::placeholder{
 
     font-family: 'Squada One', cursive;
     font-size: 1.5em;
+    width: 100%;
 
 }
 
@@ -187,7 +198,7 @@ input::placeholder{
     
     }
 
-    #game{
+    .game{
 
         margin: 0 auto;
     
@@ -214,7 +225,7 @@ input::placeholder{
 
     #info{
 
-        width: 50%;
+        width: 60%;
     
     }
     
@@ -258,6 +269,7 @@ input::placeholder{
     #info{
 
         text-align: center;
+        width: 35%;
 
     }
 
@@ -268,6 +280,12 @@ input::placeholder{
     }
 
     #contGames{
+
+        width: 70%;
+
+    }
+
+    .game{
 
         width: 50%;
 

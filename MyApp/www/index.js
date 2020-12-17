@@ -1,5 +1,7 @@
 let fotoSrc;
 
+document.addEventListener("deviceready", onDeviceReady, false);
+
 function confirmarPlayer() {
 
     if (document.getElementById("name").value === "" || document.getElementById("nick").value === "") {
@@ -35,6 +37,7 @@ function confirmarPlayer() {
                     document.getElementById("nick").value = "";
                     document.getElementById("foto").style.display = "none";
                     document.getElementById("foto2").style.display = "block";
+                    document.getElementById("takefoto").setAttribute("onclick", "takePicture2()");
                 } else if (Storage.get("p1") != null && Storage.get("p2") === null) {
                     if (document.getElementById("colorSec").value === Storage.get("p1").color) {
 
@@ -115,24 +118,35 @@ function takePicture() {
 
 }
 
-document.addEventListener("deviceready", onDeviceReady, false);
+
 
 function onDeviceReady() {
-    console.log("device ready");
-    // document.getElementById("foto").addEventListener("click", cameraTakePicture);
+    console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
 }
 
 function onSuccess(imgData) {
 
-    if (Storage.get("p1") === null) {
-
     document.getElementById("foto").src = "data:image/jpeg;base64," + imgData;
 
-    } else if (Storage.get("p1") != null && Storage.get("p2") === null) {
+}
 
-        document.getElementById("foto2").src = "data:image/jpeg;base64," + imgData;
+function takePicture2() {
+
+    let cameraOps = {
+
+        quality: 75,
+        destinationType: Camera.DestinationType.DATA_URL
 
     }
+
+    navigator.camera.getPicture(onSuccess2, onFail, cameraOps);
+
+}
+
+
+function onSuccess2(imgData) {
+
+    document.getElementById("foto2").src = "data:image/jpeg;base64," + imgData;
 
 }
 

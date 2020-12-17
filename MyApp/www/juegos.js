@@ -5,7 +5,7 @@ function loadGames() {
     document.getElementById("jug1img").src = Storage.get("p1").foto
     document.getElementById("jug2").innerHTML = Storage.get("p2").nick + "<br>" + Storage.get("p2").points + " puntos";
     document.getElementById("jug2").style.color = Storage.get("p2").color;
-    document.getElementById("jug2img").src = Storage.get("p1").foto
+    document.getElementById("jug2img").src = Storage.get("p2").foto
 
 }
 
